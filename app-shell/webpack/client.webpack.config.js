@@ -1,10 +1,9 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
-const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-  entry: './src/server/server.ts',
+  entry: './src/client/client.tsx',
   mode: 'production',
   target: 'node',
   module: {
@@ -19,9 +18,9 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
-  externals: [nodeExternals()],
   output: {
-    filename: 'server.js',
-    path: path.resolve(__dirname, 'build/server'),
+    filename: 'client.js',
+    publicPath: 'client/',
+    path: path.resolve(__dirname, '../build/client'),
   },
 };
