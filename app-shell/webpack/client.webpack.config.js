@@ -41,7 +41,7 @@ module.exports = {
   plugins: [new LoadablePlugin()],
   output: {
     filename: 'client.js',
-    publicPath: 'client/',
+    publicPath: '/client/', // "/" in the beginning of the path is mandatory, otherwise the script path will be relative to the current page, e.g. localhost:3000/clicker/client/client.js instead of localhost:3000/client/client.js
     path: path.resolve(__dirname, '../build/client'),
   },
 };

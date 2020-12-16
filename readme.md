@@ -8,3 +8,6 @@ npm i @babel/cli @babel/core @babel/node @babel/preset-env @babel/preset-react @
 For serverside rendering to be working 
     ```const LoadablePlugin = require('@loadable/webpack-plugin');```
 has to be present int CLIENT webpack config. In the server handler you need to reference `loadable-stats.json` file from the client build.
+
+Set up routing:
+one of the gotchas: publicPath in client webpack config must start with "/" otherwise the path is relative to a current route.
