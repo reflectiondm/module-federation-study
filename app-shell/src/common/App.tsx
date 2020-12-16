@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+import loadable from '@loadable/component';
+
+const Clicker = loadable(() => import('./Clicker'));
 
 export const App: React.FC = () => {
-  const [count, setCount] = useState(0);
-  const clickHandler = () => setCount(count + 1);
-
   return (
     <div>
       <h1>Hello world!</h1>
-      <div>You've clicked the button {count} times</div>
-      <button onClick={clickHandler}>Click me</button>
+      <Clicker />
     </div>
   );
 };

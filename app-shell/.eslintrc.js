@@ -22,5 +22,6 @@ module.exports = {
   },
   rules: {
     '@typescript-eslint/explicit-module-boundary-types': 0,
+    'react/prop-types': 0,
   },
 };
