@@ -3,7 +3,7 @@ import loadable from '@loadable/component';
 import { Switch, Route } from 'react-router-dom';
 import Navigation from './Navigation';
 
-const Clicker = loadable(() => import('./Clicker'));
+const Clicker = loadable(() => import('clicker/Clicker'));
 const About = loadable(() => import('./About'));
 
 export const App: React.FC = () => {

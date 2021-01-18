@@ -2,8 +2,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
-const ModuleFederationPlugin = require('webpack').container
-  .ModuleFederationPlugin;
 
 module.exports = {
   entry: './src/server/server.tsx',
@@ -39,27 +37,6 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
-  plugins: [
-    new ModuleFederationPlugin({
-      name: 'app-shell',
-      remotes: {
-        clicker: 'clicker@http://localhost:3001/client/clicker.js',
-      },
-      shared: {
-        react: {
-          import: 'react', // the "react" package will be used a provided and fallback module
-          shareKey: 'react', // under this name the shared module will be placed in the share scope
-          shareScope: 'default', // share scope with this name will be used
-          singleton: true, // only a single version of the shared module is allowed
-          eager: true,
-        },
-        'react-dom': {
-          singleton: true, // only a single version of the shared module is allowed
-          eager: true,
-        },
-      },
-    }),
-  ],
   externals: [nodeExternals()],
   output: {
     filename: 'server.js',

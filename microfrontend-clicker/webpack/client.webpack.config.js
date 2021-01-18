@@ -43,9 +43,11 @@ module.exports = {
   plugins: [
     new LoadablePlugin(),
     new ModuleFederationPlugin({
-      name: 'app-shell',
-      remotes: {
-        clicker: 'clicker@http://localhost:3001/client/clicker.js',
+      name: 'microfrontend-clicker',
+      library: { type: 'var', name: 'website2' },
+      filename: 'clicker.js',
+      exposes: {
+        './Clicker': './src/common/Clicker',
       },
       shared: {
         react: {

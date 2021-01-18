@@ -1,15 +1,2 @@
-import React from 'react';
-import { hydrate } from 'react-dom';
-import { App } from '../common/App';
-import { loadableReady } from '@loadable/component';
-import { BrowserRouter } from 'react-router-dom';
-
-const app = (
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-);
-
-loadableReady(() => {
-  hydrate(app, document.getElementById('app'));
-});
+// it is important to bootstrap an app like that because async loading script allowes usage of shared modules like react, etc.
+import('./bootstrap');
